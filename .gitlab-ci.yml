@@ -37,3 +37,10 @@ test 8.0:
 test 8.1:
   extends: .test_template
   image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.1
+
+test driver:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless
+  before_script:
+    - composer config repositories.chrome-mink-driver vcs https://gitlab.com/behat-chrome/chrome-mink-driver.git
+    - composer require dmore/chrome-mink-driver:dev-main
