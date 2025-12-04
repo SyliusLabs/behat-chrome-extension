@@ -24,17 +24,21 @@ grumphp:
     - composer require phpro/grumphp-shim ergebnis/composer-normalize enlightn/security-checker squizlabs/php_codesniffer --prefer-dist --ansi --no-progress --sort-packages
     - vendor/bin/grumphp run -n
 
-test 7.4:
-  extends: .test_template
-  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:7.4
-
-test 8.0:
-  extends: .test_template
-  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.0
-
 test 8.1:
   extends: .test_template
   image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.1
+
+test 8.2:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.2
+
+test 8.3:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.3
+
+test 8.4:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.4
 
 test driver:
   extends: .test_template
