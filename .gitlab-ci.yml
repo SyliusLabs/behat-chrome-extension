@@ -7,7 +7,6 @@ stages:
 
 .test_template:
   stage: test
-  tags: [docker]
   script:
     - composer install -o --ansi --no-progress
     - find src/ -name *.php -print0 | xargs -0 -n 1 -P 4 php -ln
@@ -21,7 +20,6 @@ stages:
 grumphp:
   image: composer
   stage: lint
-  tags: [docker]
   script:
     - composer require phpro/grumphp-shim ergebnis/composer-normalize enlightn/security-checker squizlabs/php_codesniffer --prefer-dist --ansi --no-progress --sort-packages
     - vendor/bin/grumphp run -n
