@@ -12,7 +12,7 @@ final class ChromeFactory implements DriverFactory
     /**
      * {@inheritdoc}
      */
-    public function getDriverName()
+    public function getDriverName(): string
     {
         return 'chrome';
     }
@@ -20,7 +20,7 @@ final class ChromeFactory implements DriverFactory
     /**
      * {@inheritdoc}
      */
-    public function configure(ArrayNodeDefinition $builder)
+    public function configure(ArrayNodeDefinition $builder): void
     {
         $builder->children()
             ->scalarNode('api_url')->end()
@@ -36,7 +36,7 @@ final class ChromeFactory implements DriverFactory
     /**
      * {@inheritdoc}
      */
-    public function buildDriver(array $config)
+    public function buildDriver(array $config): Definition
     {
         $validateCert = isset($config['validate_certificate']) ? $config['validate_certificate'] : true;
         $socketTimeout = $config['socket_timeout'];
@@ -63,7 +63,7 @@ final class ChromeFactory implements DriverFactory
     /**
      * {@inheritdoc}
      */
-    public function supportsJavascript()
+    public function supportsJavascript(): bool
     {
         return true;
     }
