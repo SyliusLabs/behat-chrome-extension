@@ -18,7 +18,7 @@
     "homepage": "https://github.com/SyliusLabs/behat-chrome-extension",
     "require": {
         "php": ">=7.1",
-        "behat/behat": "^3.0.4",
+        "behat/behat": "^3.0.4 || ^4.0",
         "dmore/chrome-mink-driver": "^2.4.1",
         "friends-of-behat/mink-extension": "^2.0"
     },
