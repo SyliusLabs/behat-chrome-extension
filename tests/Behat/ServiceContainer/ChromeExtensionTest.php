@@ -2,7 +2,7 @@
 
 namespace tests\Behat\ServiceContainer;
 
-use Behat\MinkExtension\ServiceContainer\MinkExtension;
+use Behat\Testwork\ServiceContainer\Extension;
 use Behat\Testwork\ServiceContainer\ExtensionManager;
 use DMore\ChromeExtension\Behat\ServiceContainer\ChromeExtension;
 use DMore\ChromeExtension\Behat\ServiceContainer\Driver\ChromeFactory;
@@ -25,8 +25,15 @@ class ChromeExtensionTest extends TestCase
 
     public function testItRegistersMinkDriver()
     {
-        $mink_extension = $this->createMock(MinkExtension::class);
-        $mink_extension->expects($this->once())->method('getConfigKey')->will($this->returnValue('mink'));
+        // Mock the Extension interface rather than the concrete MinkExtension: in
+        // friends-of-behat/mink-extension v3 (Behat 4) that class is declared final and
+        // cannot be doubled. registerDriverFactory() lives on MinkExtension only, so it is
+        // added to the interface double explicitly.
+        $mink_extension = $this->getMockBuilder(Extension::class)
+            ->onlyMethods(['getConfigKey', 'initialize', 'configure', 'load', 'process'])
+            ->addMethods(['registerDriverFactory'])
+            ->getMock();
+        $mink_extension->method('getConfigKey')->willReturn('mink');
         $extension_manager = new ExtensionManager([$mink_extension]);
 
         $mink_extension->expects($this->once())->method('registerDriverFactory')

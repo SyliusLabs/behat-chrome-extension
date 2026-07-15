@@ -40,6 +40,28 @@ test 8.4:
   extends: .test_template
   image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.4
 
+test 8.3 behat 4:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.3
+  before_script:
+    - composer require --no-update --ansi "behat/behat:^4.0@alpha" "friends-of-behat/mink-extension:^3.0@alpha"
+  cache:
+    key: behat4
+    paths:
+      - .cache
+      - vendor
+
+test 8.4 behat 4:
+  extends: .test_template
+  image: registry.gitlab.com/behat-chrome/docker-chrome-headless:8.4
+  before_script:
+    - composer require --no-update --ansi "behat/behat:^4.0@alpha" "friends-of-behat/mink-extension:^3.0@alpha"
+  cache:
+    key: behat4
+    paths:
+      - .cache
+      - vendor
+
 test driver:
   extends: .test_template
   image: registry.gitlab.com/behat-chrome/docker-chrome-headless
