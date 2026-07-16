@@ -1,6 +1,6 @@
 {
-    "name": "dmore/behat-chrome-extension",
-    "description": "Behat extension for controlling Chrome without Selenium",
+    "name": "sylius-labs/behat-chrome-extension",
+    "description": "Behat extension for controlling Chrome without Selenium — fork maintained by SyliusLabs",
     "license": "MIT",
     "type": "library",
     "keywords": [
@@ -15,7 +15,7 @@
             "email": "doriancmore@gmail.com"
         }
     ],
-    "homepage": "https://gitlab.com/behat-chrome/chrome-mink-driver",
+    "homepage": "https://github.com/SyliusLabs/behat-chrome-extension",
     "require": {
         "php": ">=7.1",
         "behat/behat": "^3.0.4",

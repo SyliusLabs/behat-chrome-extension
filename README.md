@@ -1,5 +1,11 @@
-Chrome Behat Extension
-======================
+# BehatChromeExtension
+
+[![Tests](https://github.com/SyliusLabs/behat-chrome-extension/actions/workflows/ci.yml/badge.svg)](https://github.com/SyliusLabs/behat-chrome-extension/actions/workflows/ci.yml)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](LICENSE)
+
+> **Note:** This is a fork maintained by [SyliusLabs](https://github.com/SyliusLabs).
+> The original package is [`dmore/behat-chrome-extension`](https://gitlab.com/behat-chrome/behat-chrome-extension)
+> ([on Packagist](https://packagist.org/packages/dmore/behat-chrome-extension)).
 
 Behat extension for controlling chrome without the overhead of selenium.
 
@@ -14,7 +20,7 @@ The same suite running against chrome 58 with xvfb and selenium takes ~60 minute
 ## Installation:
 
 ```bash
-composer require dmore/behat-chrome-extension
+composer require sylius-labs/behat-chrome-extension
 ```
 
 ## Requirements:
