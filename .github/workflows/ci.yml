@@ -35,6 +35,8 @@ jobs:
                     - { php: '8.2', label: 'PHP 8.2' }
                     - { php: '8.3', label: 'PHP 8.3' }
                     - { php: '8.4', label: 'PHP 8.4' }
+                    - { php: '8.3', label: 'PHP 8.3 (Behat 4)', behat4: true }
+                    - { php: '8.4', label: 'PHP 8.4 (Behat 4)', behat4: true }
                     - { php: '8.4', label: 'chrome-mink-driver dev', driver_dev: true }
         steps:
             - uses: actions/checkout@v4
@@ -67,6 +69,10 @@ jobs:
               run: |
                   composer config repositories.chrome-mink-driver vcs https://gitlab.com/behat-chrome/chrome-mink-driver.git
                   composer require dmore/chrome-mink-driver:dev-main --no-update --ansi --no-progress
+
+            - name: Require Behat 4
+              if: ${{ matrix.behat4 }}
+              run: composer require --no-update --ansi --no-progress "behat/behat:^4.0@alpha" "friends-of-behat/mink-extension:^3.0@alpha"
 
             - name: Install dependencies
               run: composer install -o --ansi --no-progress
