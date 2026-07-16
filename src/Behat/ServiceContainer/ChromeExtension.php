@@ -13,7 +13,7 @@ class ChromeExtension implements ExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function getConfigKey()
+    public function getConfigKey(): string
     {
         return 'chrome';
     }
@@ -21,7 +21,7 @@ class ChromeExtension implements ExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function initialize(ExtensionManager $extensionManager)
+    public function initialize(ExtensionManager $extensionManager): void
     {
         if (null !== $minkExtension = $extensionManager->getExtension('mink')) {
             /* @var $minkExtension MinkExtension */
@@ -32,14 +32,14 @@ class ChromeExtension implements ExtensionInterface
     /**
      * {@inheritdoc}
      */
-    public function configure(ArrayNodeDefinition $builder)
+    public function configure(ArrayNodeDefinition $builder): void
     {
     }
 
     /**
      * {@inheritdoc}
      */
-    public function load(ContainerBuilder $container, array $config)
+    public function load(ContainerBuilder $container, array $config): void
     {
     }
 
